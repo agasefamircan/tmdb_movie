@@ -16,7 +16,6 @@ const ReviewsSection: FC<ReviewsSectionProps> = ({ reviews }) => {
       <Box
         sx={{
           maxWidth: 'md',
-          width: '100%',
           mx: 0,
           px: 4,
         }}
