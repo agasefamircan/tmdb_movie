@@ -194,15 +194,16 @@ const ContentListPage: FC<ContentListPageProps> = ({
             }}
           >
             <ToggleButtonGroup
+              aria-label="View Mode"
               size="small"
               value={viewMode}
               exclusive
               onChange={(_, v) => v && setViewMode(v)}
             >
-              <ToggleButton value="grid">
+              <ToggleButton aria-label="Grid view" value="grid">
                 <GridViewIcon fontSize="small" />
               </ToggleButton>
-              <ToggleButton value="list">
+              <ToggleButton aria-label="List view" value="list">
                 <ViewListIcon fontSize="small" />
               </ToggleButton>
             </ToggleButtonGroup>

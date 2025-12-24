@@ -90,7 +90,11 @@ const Header = () => {
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             {isMobile && (
-              <IconButton color="inherit" onClick={() => setDrawerOpen(true)}>
+              <IconButton
+                aria-label="Menu icon"
+                color="inherit"
+                onClick={() => setDrawerOpen(true)}
+              >
                 <FiMenu size={22} />
               </IconButton>
             )}
@@ -151,13 +155,20 @@ const Header = () => {
           </Box>
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <IconButton sx={{ color: '#fff' }} onClick={() => setSearchActive((v) => !v)}>
+            <IconButton
+              aria-label="search icon"
+              sx={{ color: '#fff' }}
+              onClick={() => setSearchActive((v) => !v)}
+            >
               <FiSearch size={20} />
             </IconButton>
 
             {sessionId ? (
               <>
-                <IconButton onClick={(e) => setAvatarAnchor(e.currentTarget)}>
+                <IconButton
+                  aria-label="User Avatar"
+                  onClick={(e) => setAvatarAnchor(e.currentTarget)}
+                >
                   <Avatar
                     sx={{
                       width: 32,
@@ -196,7 +207,7 @@ const Header = () => {
                 </Menu>
               </>
             ) : (
-              <Button color="inherit" onClick={() => navigate('/login')}>
+              <Button aria-label="Login" color="inherit" onClick={() => navigate('/login')}>
                 {t('nav.login')}
               </Button>
             )}

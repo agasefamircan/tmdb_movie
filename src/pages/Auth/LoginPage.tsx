@@ -21,7 +21,7 @@ const LoginPage = () => {
         Login to your TMDB account
       </Typography>
 
-      <Button variant="contained" size="large" onClick={handleLogin}>
+      <Button aria-label="Login button" variant="contained" size="large" onClick={handleLogin}>
         Login with TMDB
       </Button>
     </Container>

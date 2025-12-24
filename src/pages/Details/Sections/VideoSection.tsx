@@ -65,6 +65,7 @@ const VideoSection = ({ videos }: { videos: Video[] }) => {
                   sx={{ width: '100%', display: 'block' }}
                 />
                 <IconButton
+                  aria-label="Play video"
                   sx={{
                     position: 'absolute',
                     top: '50%',

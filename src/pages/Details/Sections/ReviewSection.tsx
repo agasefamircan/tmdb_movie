@@ -39,6 +39,7 @@ const ReviewsSection: FC<ReviewsSectionProps> = ({ reviews }) => {
             {hasMore && (
               <Box display="flex" justifyContent="center" mt={3}>
                 <Button
+                  aria-label="Load More"
                   variant="outlined"
                   onClick={() => setVisibleCount((prev) => prev + INITIAL_COUNT)}
                 >

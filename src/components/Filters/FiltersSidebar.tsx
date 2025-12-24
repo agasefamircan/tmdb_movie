@@ -228,7 +228,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ type }) => {
         </Select>
       </Box>
 
-      <Button fullWidth variant="outlined" onClick={resetAll}>
+      <Button aria-label="Reset All" fullWidth variant="outlined" onClick={resetAll}>
         {t('filter.resetAll')}
       </Button>
     </Paper>

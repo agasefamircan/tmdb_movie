@@ -53,7 +53,7 @@ const NotesSection: FC<NotesSectionProps> = ({ id, type }) => {
             onChange={(e) => setText(e.target.value)}
             fullWidth
           />
-          <Button variant="contained" onClick={handleAdd}>
+          <Button aria-label="Save Note" variant="contained" onClick={handleAdd}>
             Save Note
           </Button>
         </Stack>

@@ -26,7 +26,13 @@ const NotFoundPage = () => {
           The page you’re looking for doesn’t exist or has been moved.
         </Typography>
 
-        <Button component={Link} to="/" variant="contained" sx={{ mt: 2 }}>
+        <Button
+          aria-label="Back to Home"
+          component={Link}
+          to="/"
+          variant="contained"
+          sx={{ mt: 2 }}
+        >
           Back to Home
         </Button>
       </Stack>

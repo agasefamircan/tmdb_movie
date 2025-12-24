@@ -29,6 +29,7 @@ const CollectionPage = () => {
                   borderRadius: 10,
                   objectFit: 'cover',
                 }}
+                alt="poster"
               />
               <Typography fontWeight={600}>{c.name}</Typography>
               <Typography sx={{ opacity: 0.7, fontSize: 14 }}>

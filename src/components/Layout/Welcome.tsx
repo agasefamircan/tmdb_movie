@@ -87,6 +87,7 @@ const Welcome = () => {
           />
 
           <Button
+            aria-label="Welcome Search Button"
             type="submit"
             variant="contained"
             disabled={!query.trim()}

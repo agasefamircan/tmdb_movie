@@ -24,6 +24,7 @@ const Footer: React.FC = () => {
         <Typography variant="body2" sx={{ mb: 2 }}>
           &copy; {currentYear} by{' '}
           <Link
+            aria-label="Github link"
             href="https://github.com/agasefamircan"
             target="_blank"
             color="inherit"
@@ -33,7 +34,7 @@ const Footer: React.FC = () => {
           </Link>
         </Typography>
         <Box>
-          <Link href="https://github.com/agasefamircan" color="inherit">
+          <Link aria-label="Github link" href="https://github.com/agasefamircan" color="inherit">
             <FaGithub size={24} />
           </Link>
         </Box>

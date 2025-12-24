@@ -41,7 +41,12 @@ const ReviewCard: FC<{ review: Review }> = ({ review }) => {
         </Typography>
 
         {isLong && (
-          <Button size="small" sx={{ mt: 1, px: 0 }} onClick={() => setExpanded((p) => !p)}>
+          <Button
+            aria-label="Expand text"
+            size="small"
+            sx={{ mt: 1, px: 0 }}
+            onClick={() => setExpanded((p) => !p)}
+          >
             {expanded ? 'Show less' : 'Read more'}
           </Button>
         )}

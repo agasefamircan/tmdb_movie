@@ -100,13 +100,13 @@ const ActionBar: FC<ActionBarProps> = ({ id, type }) => {
       >
         <Stack direction="row" spacing={1}>
           <Tooltip title="Favorite">
-            <IconButton onClick={toggleFavorite} color="error">
+            <IconButton aria-label='Favorite icon' onClick={toggleFavorite} color="error">
               {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
             </IconButton>
           </Tooltip>
 
           <Tooltip title="Watchlist">
-            <IconButton onClick={toggleWatchlist} color="primary">
+            <IconButton aria-label='Bookmark Icon' onClick={toggleWatchlist} color="primary">
               {isWatchlist ? <BookmarkIcon /> : <BookmarkBorderIcon />}
             </IconButton>
           </Tooltip>

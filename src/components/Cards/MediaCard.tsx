@@ -184,6 +184,7 @@ const MediaCard: FC<MediaCardProps> = ({
         >
           <Tooltip title="Favorite">
             <IconButton
+              aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
               onClick={handleFavorite}
               size="small"
               sx={{
@@ -198,6 +199,7 @@ const MediaCard: FC<MediaCardProps> = ({
 
           <Tooltip title="Watchlist">
             <IconButton
+              aria-label={isWatchlist ? 'Remove from watchlist' : 'Add to watchlist'}
               onClick={handleWatchlist}
               size="small"
               sx={{
