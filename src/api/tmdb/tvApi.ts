@@ -24,6 +24,12 @@ export const tvApi = tmdbBaseApi.injectEndpoints({
         params: { language: 'en-US' },
       }),
     }),
+    getTopRatedTv: builder.query({
+      query: () => ({
+        url: `/tv/top_rated`,
+        params: { language: 'en-US' },
+      }),
+    }),
 
     getTvDetails: builder.query({
       query: (movieId: number) => ({
@@ -65,6 +71,7 @@ export const {
   useGetPopularTVQuery,
   useGetAiringTodayQuery,
   useGetOnTheAirQuery,
+  useGetTopRatedTvQuery,
   useGetTvDetailsQuery,
   useGetTvCreditsQuery,
   useGetTvVideosQuery,

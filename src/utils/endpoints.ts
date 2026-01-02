@@ -8,6 +8,7 @@ import {
   useGetAiringTodayQuery,
   useGetOnTheAirQuery,
   useGetPopularTVQuery,
+  useGetTopRatedTvQuery
 } from '../api/tmdb/tvApi';
 
 export const MOVIE_ENDPOINTS = {
@@ -21,5 +22,5 @@ export const TV_ENDPOINTS = {
   popular: useGetPopularTVQuery,
   'airing-today': useGetAiringTodayQuery,
   'on-the-air': useGetOnTheAirQuery,
-  'top-rated': useGetTopRatedQuery,
+  'top-rated': useGetTopRatedTvQuery,
 };
