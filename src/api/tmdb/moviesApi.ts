@@ -110,11 +110,11 @@ export const moviesApi = tmdbBaseApi.injectEndpoints({
       }),
     }),
 
-    getTopRated: builder.query<any, { type: 'movie' | 'tv'; page: number }>({
-      query: ({ type = 'movie', page = 1 }) => ({
+    getTopRated: builder.query<any, { type: 'movie' | 'tv'; language: string; page: number }>({
+      query: ({ type = 'movie', language = 'en-Us', page = 1 }) => ({
         url: `/${type}/top_rated`,
         params: {
-          language: 'en-US',
+          language,
           page,
         },
       }),

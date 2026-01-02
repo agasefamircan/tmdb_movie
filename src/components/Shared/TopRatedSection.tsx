@@ -17,6 +17,7 @@ const TopRatedSection = () => {
   const { data, isLoading, isError } = useGetTopRatedQuery({
     type: mediaType,
     language: apiLanguage,
+    page: 1,
   });
 
   const items = data?.results || [];
