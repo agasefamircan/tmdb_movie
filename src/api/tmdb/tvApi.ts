@@ -7,27 +7,27 @@ export const tvApi = tmdbBaseApi.injectEndpoints({
     }),
 
     getPopularTV: builder.query({
-      query: () => ({
+      query: ({ page }) => ({
         url: `/tv/popular`,
-        params: { language: 'en-US' },
+        params: { language: 'en-US', page },
       }),
     }),
     getAiringToday: builder.query({
-      query: () => ({
+      query: ({ page }) => ({
         url: `/tv/airing_today`,
-        params: { language: 'en-US' },
+        params: { language: 'en-US', page },
       }),
     }),
     getOnTheAir: builder.query({
-      query: () => ({
+      query: ({ page }) => ({
         url: `/tv/on_the_air`,
-        params: { language: 'en-US' },
+        params: { language: 'en-US', page },
       }),
     }),
     getTopRatedTv: builder.query({
-      query: () => ({
+      query: ({ page }) => ({
         url: `/tv/top_rated`,
-        params: { language: 'en-US' },
+        params: { language: 'en-US', page },
       }),
     }),
 

@@ -6,11 +6,12 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export const moviesApi = tmdbBaseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getPopular: builder.query({
-      query: ({ type = 'movie' }: { type: 'movie' | 'tv' }) => ({
+    getPopular: builder.query<any, { type?: 'movie' | 'tv'; page?: number }>({
+      query: ({ type = 'movie', page = 1 }) => ({
         url: `/${type}/popular`,
         params: {
           language: 'en-US',
+          page,
         },
       }),
     }),
@@ -77,15 +78,15 @@ export const moviesApi = tmdbBaseApi.injectEndpoints({
       }),
     }),
     getUpcoming: builder.query({
-      query: ({ type = 'movie', language }) => ({
+      query: ({ type = 'movie', page }) => ({
         url: `/${type}/upcoming`,
-        params: { language },
+        params: { language: 'en-US', page },
       }),
     }),
     getNowPlaying: builder.query({
-      query: ({ type = 'movie' }) => ({
+      query: ({ type = 'movie', page }) => ({
         url: `/${type}/now_playing`,
-        params: { language: 'en-US' },
+        params: { language: 'en-US', page },
       }),
     }),
     // get by genre
@@ -109,11 +110,12 @@ export const moviesApi = tmdbBaseApi.injectEndpoints({
       }),
     }),
 
-    getTopRated: builder.query<any, { type: 'movie' | 'tv'; language: string }>({
-      query: ({ type = 'movie', language }) => ({
+    getTopRated: builder.query<any, { type: 'movie' | 'tv'; page: number }>({
+      query: ({ type = 'movie', page = 1 }) => ({
         url: `/${type}/top_rated`,
         params: {
-          language,
+          language: 'en-US',
+          page,
         },
       }),
     }),
