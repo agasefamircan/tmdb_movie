@@ -25,6 +25,7 @@ export default function TVShowsPage() {
 
   return (
     <ContentListPage
+      key={`tv-${category}`}
       title={titleMap[category]}
       type="tv"
       fetchDefault={fetchDefault}

@@ -25,6 +25,7 @@ export default function MoviesPage() {
   };
   return (
     <ContentListPage
+      key={`movie-${category}`}
       title={titleMap[category]}
       type="movie"
       fetchDefault={fetchDefault}
