@@ -186,7 +186,7 @@ const ContentListPage: FC<ContentListPageProps> = ({
               alignItems: 'center',
             }}
           >
-            <Typography variant="h4">{title}</Typography>
+            <Typography variant={isMobile ? 'h6' : 'h4'}>{title}</Typography>
             <Typography variant="body2" color="text.secondary">
               {loading ? 'Loading...' : `${totalResults} results`}
             </Typography>
