@@ -42,7 +42,6 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ type }) => {
 
   const { data: genresData } = useGetGenresQuery(mediaType);
   const genres = genresData?.genres || [];
-  console.log('genres', genres);
 
   const { t } = useI18n()!;
 

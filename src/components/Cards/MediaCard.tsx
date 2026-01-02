@@ -56,7 +56,7 @@ const MediaCard: FC<MediaCardProps> = ({
       return;
     }
     if (type === 'movie' || type === 'tv') {
-      var nextFavorites = isFavorite
+      const nextFavorites = isFavorite
         ? favoriteIds[type].filter((favId) => favId !== id)
         : [...favoriteIds[type], id];
 
@@ -93,7 +93,7 @@ const MediaCard: FC<MediaCardProps> = ({
       return;
     }
     if (type === 'movie' || type === 'tv') {
-      var nextWatchlist = isWatchlist
+      const nextWatchlist = isWatchlist
         ? watchlistIds[type].filter((wid) => wid !== id)
         : [...watchlistIds[type], id];
 

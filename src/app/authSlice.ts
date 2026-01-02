@@ -34,10 +34,20 @@ const authSlice = createSlice({
       localStorage.removeItem('account_id');
     },
     setFavorites(state, action: PayloadAction<MediaIdsByType>) {
-      state.favoriteIds = action.payload;
+      if (action.payload.movie) {
+        state.favoriteIds.movie = action.payload.movie;
+      }
+      if (action.payload.tv) {
+        state.favoriteIds.tv = action.payload.tv;
+      }
     },
     setWatchlist(state, action: PayloadAction<MediaIdsByType>) {
-      state.watchlistIds = action.payload;
+      if (action.payload.movie) {
+        state.watchlistIds.movie = action.payload.movie;
+      }
+      if (action.payload.tv) {
+        state.watchlistIds.tv = action.payload.tv;
+      }
     },
     setRatings(state, action: PayloadAction<Record<number, number>>) {
       state.ratedMap = action.payload;
