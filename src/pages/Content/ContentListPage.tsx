@@ -10,6 +10,10 @@ import {
   ToggleButtonGroup,
   Select,
   MenuItem,
+  useTheme,
+  useMediaQuery,
+  IconButton,
+  Drawer,
 } from '@mui/material';
 import GridViewIcon from '@mui/icons-material/GridView';
 import ViewListIcon from '@mui/icons-material/ViewList';
@@ -24,6 +28,7 @@ import type { ContentListPageProps } from '../../types/common';
 import { useI18n } from '../../app/providers/I18nProvider';
 import { getApiLanguage } from '../../helper/getApiLang';
 import { usePageTitle } from '../../hooks/usePageTitle';
+import { FiMenu } from 'react-icons/fi';
 
 type SortKey =
   | 'popularity_desc'
@@ -56,6 +61,10 @@ const ContentListPage: FC<ContentListPageProps> = ({
   const [viewMode, setViewMode] = useState<ViewKey>('grid');
   const [sort, setSort] = useState<SortKey>('popularity_desc');
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
   useEffect(() => {
     setPage(1);
   }, [filters]);
@@ -67,7 +76,10 @@ const ContentListPage: FC<ContentListPageProps> = ({
       const initial = defaultFilters[key];
 
       if (Array.isArray(current) && Array.isArray(initial)) {
-        return current.length !== initial.length || current.some((value, index) => value !== initial[index]);
+        return (
+          current.length !== initial.length ||
+          current.some((value, index) => value !== initial[index])
+        );
       }
 
       return current !== initial;
@@ -164,7 +176,7 @@ const ContentListPage: FC<ContentListPageProps> = ({
   return (
     <Container maxWidth="xl" sx={{ mt: 3 }}>
       <Box sx={{ display: 'flex', gap: 3 }}>
-        <FiltersSidebar type={type} />
+        {!isMobile && <FiltersSidebar type={type} />}
 
         <Box sx={{ flex: 1 }}>
           <Box
@@ -178,6 +190,11 @@ const ContentListPage: FC<ContentListPageProps> = ({
             <Typography variant="body2" color="text.secondary">
               {loading ? 'Loading...' : `${totalResults} results`}
             </Typography>
+            {isMobile && (
+              <IconButton onClick={() => setFiltersOpen(true)}>
+                <FiMenu size={22} />
+              </IconButton>
+            )}
           </Box>
 
           <Box
@@ -262,7 +279,7 @@ const ContentListPage: FC<ContentListPageProps> = ({
               ))}
             </Grid>
           ) : (
-            <Grid container spacing={2}>
+            <Grid container>
               {sortedResults.map((item: any) => (
                 <Grid
                   component="div"
@@ -302,6 +319,11 @@ const ContentListPage: FC<ContentListPageProps> = ({
           </Box>
         </Box>
       </Box>
+      <Drawer anchor="left" open={filtersOpen} onClose={() => setFiltersOpen(false)}>
+        <Box sx={{ width: 300 }}>
+          <FiltersSidebar type={type} />
+        </Box>
+      </Drawer>
     </Container>
   );
 };
