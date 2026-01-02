@@ -19,7 +19,7 @@ import MediaCard from '../../components/Cards/MediaCard';
 import { SkeletonCard } from '../../components/common/SkeletonCard.';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { resetFilters, setField } from '../../components/Filters/filtersSlice';
+import { defaultFilters, resetFilters, setField } from '../../components/Filters/filtersSlice';
 import type { ContentListPageProps } from '../../types/common';
 import { useI18n } from '../../app/providers/I18nProvider';
 import { getApiLanguage } from '../../helper/getApiLang';
@@ -58,22 +58,20 @@ const ContentListPage: FC<ContentListPageProps> = ({
 
   useEffect(() => {
     setPage(1);
-  }, [JSON.stringify(filters)]);
+  }, [filters]);
 
   usePageTitle(title);
   const isFiltering = useMemo(() => {
-    const yearStart = 1900;
-    const yearEnd = new Date().getFullYear() + 2;
+    return (Object.keys(defaultFilters) as (keyof typeof defaultFilters)[]).some((key) => {
+      const current = filters[key];
+      const initial = defaultFilters[key];
 
-    return (
-      filters.genres.length > 0 ||
-      filters.minRating > 0 ||
-      filters.yearFrom !== yearStart ||
-      filters.yearTo !== yearEnd ||
-      filters.countries.length > 0 ||
-      filters.languages.length > 1 ||
-      !!filters.studio
-    );
+      if (Array.isArray(current) && Array.isArray(initial)) {
+        return current.length !== initial.length || current.some((value, index) => value !== initial[index]);
+      }
+
+      return current !== initial;
+    });
   }, [filters]);
 
   const { data: filteredData, isFetching: loadingFiltered } = fetchFiltered(
