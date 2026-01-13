@@ -25,6 +25,7 @@ import ProfilePage from '../pages/Profile/ProfilePage';
 import FavoritesPage from '../pages/Profile/FavoritePage';
 import WatchlistPage from '../pages/Profile/WatchlistPage';
 import RatingsPage from '../pages/Profile/RatingsPage';
+import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
       // Profile page
       {
         path: '/profile',
-        element: <ProfilePage />,
+        element: <ProtectedRoute><ProfilePage /></ProtectedRoute>,
         children: [
           { index: true, element: <Navigate to="favorites" /> },
           { path: 'favorites', element: <FavoritesPage /> },
